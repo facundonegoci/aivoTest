@@ -21,6 +21,6 @@ Should have already installed
 
 Now visit the your site using a URL similar to this:
 
-example.com/TestAivo/index/profileId
+example.com/TestAivo/index/*profileId*
 
 Replace profileId with any id
