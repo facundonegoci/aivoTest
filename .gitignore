@@ -1,0 +1,6 @@
+# vendor folder #
+/vendor/*
+
+# netbeans project config #
+/nbproject/*
+

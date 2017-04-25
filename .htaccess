@@ -1,0 +1,31 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|resources|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
+<IfModule mod_deflate.c>
+    <filesMatch "\.(js|css|html|php)$">
+        SetOutputFilter DEFLATE
+    </filesMatch>
+</IfModule>
+
+<ifmodule mod_expires.c>
+ ExpiresActive On
+ ExpiresDefault A3600
+ <FilesMatch ".(gif|jpg|jpeg|png|swf)$">
+ # 2 weeks
+ ExpiresDefault A604800
+ Header append Cache-Control "public"
+ </FilesMatch>
+ <FilesMatch ".(xml|txt|html)$">
+ # 2 hours
+ ExpiresDefault A604800
+ Header append Cache-Control "public"
+ </FilesMatch>
+ <FilesMatch ".(js|css)$">
+ # 3 days
+ ExpiresDefault A604800
+ Header append Cache-Control "public"
+ </FilesMatch>
+</ifmodule>
